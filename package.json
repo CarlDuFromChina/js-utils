@@ -1,0 +1,25 @@
+{
+  "name": "web-core",
+  "version": "1.0.0",
+  "description": "web core",
+  "main": "index.js",
+  "repository": "https://gitee.com/SixPenceStudio/WebCore",
+  "author": "Karl Du",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "prepublish": "yarn run build"
+  },
+  "publishConfig": {
+    "registry": "http://npm.karldu.cn/"
+  },
+  "dependencies": {
+    "js-md5": "^0.7.3",
+    "jsencrypt": "^3.0.0-rc.1",
+    "axios": "^0.19.0",
+    "uuidjs": "^4.2.4"
+  },
+  "devDependencies": {
+    "rollup": "^2.33.1"
+  }
+}
