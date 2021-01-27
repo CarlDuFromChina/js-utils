@@ -5,9 +5,8 @@ const axios = require('axios');
 axios.defaults.timeout = 20000;
 axios.defaults.withCredentials = true;
 axios.interceptors.request.use((config) => {
-  config.headers.Authorization = `BasicAuth ${
-    localStorage.getItem('Token') || ''
-  }`;
+  config.headers.Authorization = `BasicAuth ${localStorage.getItem('Token') || ''
+    }`;
   return config;
 });
 
@@ -32,6 +31,8 @@ axios.interceptors.response.use(
         case 403:
           location.href = '/#/login';
           break;
+        case 404:
+          return Promise.reject('未找到资源');
         default:
           break;
       }
