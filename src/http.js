@@ -25,14 +25,9 @@ axios.interceptors.response.use(
   (error) => {
     if (error && error.response && error.response.status) {
       switch (error.response.status) {
-        case 401:
-          location.href = '/#/index';
-          break;
         case 403:
           location.href = '/#/login';
           break;
-        case 404:
-          return Promise.reject('未找到资源');
         default:
           break;
       }
@@ -76,15 +71,18 @@ function _handleSuccess(res) {
 }
 
 function _handleError(error) {
-  let err = error.response || error;
-
+  const { status, data } = error.response;
   let errorMessage;
-  if (err.status === 401) {
-    errorMessage = '您没有权限访问该资源';
-  } else if (err.status === 403) {
+  if (status === 401) {
+    errorMessage = data || '您没有权限访问该资源';
+  } else if (status === 403) {
     errorMessage = '请重新登录';
+  } else if (status === 500) {
+    errorMessage = '系统错误，请联系管理员';
+  } else if (status === 404) {
+    errorMessage = data || '未找到资源';
   } else {
-    errorMessage = err.data || err;
+    errorMessage = data;
   }
   return errorMessage;
 }
@@ -97,6 +95,7 @@ export function get(url, config) {
         resolve(_handleSuccess(res));
       })
       .catch((err) => {
+        var errMsg = _handleError(err);
         reject(_handleError(err));
       });
   });
