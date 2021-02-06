@@ -32,6 +32,8 @@ axios.interceptors.response.use(
           break;
       }
       return Promise.reject(error);
+    } else {
+      return Promise.reject({ response: { status: 400, data: '服务器开小差了' } });
     }
   }
 );
@@ -71,26 +73,20 @@ function _handleSuccess(res) {
 }
 
 function _handleError(error) {
-  if (error.response) {
-    const { status, data } = error.response;
-    let errorMessage;
-    if (status === 401) {
-      errorMessage = data || '您没有权限访问该资源';
-    } else if (status === 403) {
-      errorMessage = '请重新登录';
-    } else if (status === 500) {
-      errorMessage = '系统错误，请联系管理员';
-    } else if (status === 404) {
-      errorMessage = data || '未找到资源';
-    } else {
-      errorMessage = data;
-    }
-    return errorMessage;
-  } else if (error.message) {
-    return error.message;
+  const { status, data } = error.response;
+  let errorMessage;
+  if (status === 401) {
+    errorMessage = data || '您没有权限访问该资源';
+  } else if (status === 403) {
+    errorMessage = '请重新登录';
+  } else if (status === 500) {
+    errorMessage = '系统错误，请联系管理员';
+  } else if (status === 404) {
+    errorMessage = data || '未找到资源';
   } else {
-    return '系统错误，请联系管理员';
+    errorMessage = data;
   }
+  return errorMessage;
 }
 
 export function get(url, config) {
