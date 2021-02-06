@@ -95,7 +95,6 @@ export function get(url, config) {
         resolve(_handleSuccess(res));
       })
       .catch((err) => {
-        var errMsg = _handleError(err);
         reject(_handleError(err));
       });
   });
