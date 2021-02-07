@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "description": "web core",
   "main": "index.js",
-  "repository": "https://gitee.com/SixPenceStudio/WebCore",
+  "repository": "https://gitee.com/SixPenceStudio/web-core",
   "author": "Karl Du",
   "license": "MIT",
   "scripts": {
