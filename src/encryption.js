@@ -1,4 +1,4 @@
-import { JSEncrypt } from 'jsencrypt';
+import JSEncrypt from 'jsencrypt';
 import md5 from 'js-md5';
 
 export function encrypt(str, publickKey) {
