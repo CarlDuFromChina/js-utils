@@ -1,10 +1,10 @@
 import UUID from 'uuidjs';
-import { isNull } from './common';
+import { isNull } from '../common';
 
 /**
  * 创建一个 Guid
  */
-export function newUUID() {
+export function generate() {
   return UUID.generate();
 }
 
@@ -13,7 +13,7 @@ export function newUUID() {
  * @param {string} value1
  * @param {string} value2
  */
-export function isSameUUID(value1, value2) {
+export function isSame(value1, value2) {
   if (isNull(value1) || isNull(value2)) {
     return false;
   }
@@ -23,3 +23,8 @@ export function isSameUUID(value1, value2) {
     value2.replace(/[{}]/g, '').toUpperCase()
   );
 }
+
+export default {
+  generate,
+  isSame,
+};
