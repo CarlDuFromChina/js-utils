@@ -1,6 +1,6 @@
 {
   "name": "web-core",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "web core",
   "main": "index.js",
   "repository": "https://gitee.com/SixPenceStudio/web-core",
@@ -14,12 +14,12 @@
     "registry": "http://npm.karldu.cn/"
   },
   "dependencies": {
+    "crypto-js": "^4.0.0",
     "current-device": "^0.10.2",
     "js-base64": "^3.6.0",
     "js-md5": "^0.7.3",
     "jsencrypt": "^3.0.0",
-    "uuidjs": "^4.2.4",
-    "crypto-js": "^4.0.0"
+    "uuidjs": "^4.2.4"
   },
   "devDependencies": {
     "rollup": "^2.33.1"
