@@ -18,7 +18,8 @@
     "js-base64": "^3.6.0",
     "js-md5": "^0.7.3",
     "jsencrypt": "^3.0.0",
-    "uuidjs": "^4.2.4"
+    "uuidjs": "^4.2.4",
+    "crypto-js": "^4.0.0"
   },
   "devDependencies": {
     "rollup": "^2.33.1"
