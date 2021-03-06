@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { isNull } from './common';
+import { isNil } from './common';
 
 axios.defaults.timeout = 20000;
 axios.defaults.withCredentials = true;
