@@ -1,10 +1,8 @@
 'use strict';
 import encrypt from './src/utils/encrypt';
 import uuid from './src/utils/uuid';
-import * as spCore from './src/common';
-
-export { encrypt, uuid };
-
+import * as http from './src/http';
+import * as common from './src/common';
 import './src/extension';
 
-window.sp = Object.assign({}, spCore);
+export { encrypt, uuid, http, common };
