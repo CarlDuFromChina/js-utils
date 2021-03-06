@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isNull } from './common';
 
 axios.defaults.timeout = 20000;
 axios.defaults.withCredentials = true;
@@ -12,7 +13,7 @@ function _handleSuccess(res) {
 
   if (res.data.ErrorCode === 0) {
     return res.data.Data || res.data;
-  } else if (!sp.isNull(res.data.ErrorCode) && !sp.isNull(res.data.Message)) {
+  } else if (!isNil(res.data.ErrorCode) && !isNil(res.data.Message)) {
     return Promise.reject(new Error(res.data.Message));
   } else {
     return res.data;
