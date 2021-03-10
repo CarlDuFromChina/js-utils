@@ -11,7 +11,9 @@ Web Core 是一个 JavaScript 库，简化了 JavaScript 编程。
 ## 使用方式
 
 ```javascript
-import 'web-core';
+import { common, http } from 'web-core';
+
+window.sp = Object.assign({}, common, http);
 
 // common
 var obj = null;
