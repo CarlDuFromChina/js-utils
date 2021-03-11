@@ -34,3 +34,24 @@ String.prototype.toStringFromBase64 = function () {
   }
   return '';
 }
+
+/**
+ * 根据传入大小分组数组
+ * @param {Number} size 
+ * @returns {Array} 返回分组后的数组
+ */
+Array.prototype.chunk = function chunk(size = 1) {
+  size = Math.max(parseInt(size), 0)
+  const length = this == null ? 0 : this.length
+  if (!length || size < 1) {
+    return []
+  }
+  let index = 0
+  let resIndex = 0
+  const result = new Array(Math.ceil(length / size))
+
+  while (index < length) {
+    result[resIndex++] = this.slice(index, (index += size))
+  }
+  return result
+}
