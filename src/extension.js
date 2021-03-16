@@ -2,9 +2,22 @@ import { encode, decode } from 'js-base64';
 import { isNullOrEmpty } from './common';
 
 /**
+ * 原型链添加方法
+ * @param {String} name 
+ * @param {Object} func 
+ * @returns this
+ */
+Function.prototype.method = function (name, func) {
+  if (!this.prototype[name]) {
+    this.prototype[name] = func;
+  }
+  return this;
+};
+
+/**
  * 获取 html 文本内容
  */
-String.prototype.toText = function () {
+String.method('toText', function () {
   if (!isNullOrEmpty(this)) {
     const result = this.replace(/<([^>]+)>([\d\D]*?)<\/\1>/g, '$2 ').split(
       /\s+/
@@ -13,34 +26,34 @@ String.prototype.toText = function () {
     return result.join();
   }
   return '';
-};
+});
 
 /**
  * 转base64
  */
-String.prototype.toBase64String = function () {
+String.method('toBase64String', function () {
   if (!isNullOrEmpty(this)) {
     return encode(this);
   }
   return '';
-}
+});
 
 /**
  * 转base64为文本
  */
-String.prototype.toStringFromBase64 = function () {
+String.method('toStringFromBase64', function () {
   if (!isNullOrEmpty(this)) {
     return decode(this);
   }
   return '';
-}
+});
 
 /**
  * 根据传入大小分组数组
  * @param {Number} size 
  * @returns {Array} 返回分组后的数组
  */
-Array.prototype.chunk = function chunk(size = 1) {
+Array.method('chunk', function (size = 1) {
   size = Math.max(parseInt(size), 0)
   const length = this == null ? 0 : this.length
   if (!length || size < 1) {
@@ -54,4 +67,4 @@ Array.prototype.chunk = function chunk(size = 1) {
     result[resIndex++] = this.slice(index, (index += size))
   }
   return result
-}
+});
