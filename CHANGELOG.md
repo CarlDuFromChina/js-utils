@@ -3,6 +3,7 @@
 ### Features
 
 + `http`扩展了`put`、`delete`方法
++ `Function`原型链添加`method`方法，优化原型扩展语法
 
 ## 1.0.14
 
