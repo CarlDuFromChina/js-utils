@@ -1,4 +1,4 @@
-import * as core from common;
+import * as core from 'common';
 
 function init(url) {
   window.WebSocket = window.WebSocket || window.MozWebSocket;
@@ -18,7 +18,7 @@ export default function Socket(url) {
   };
   client.onmessage = e => {
     if (core.isFunction(this.onmessage)) {
-      this.onmessage(e);      
+      this.onmessage(e);
     }
   };
   client.onerror = e => {
