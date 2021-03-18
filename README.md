@@ -1,6 +1,10 @@
 # Web Core
 
-Web Core 是一个 JavaScript 库，简化了 JavaScript 编程。
+Web Core 是一个 JavaScript 库，简化了 JavaScript 编程
+
+## 变更日志
+
+[变更日志](./CHANGELOG.md)详细记录了每个发行版的详细更改
 
 ## 功能
 
