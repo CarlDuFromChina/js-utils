@@ -57,28 +57,37 @@ function _handleError(error) {
   return errorMessage;
 }
 
-export function get(url, config) {
-  return new Promise(function (resolve, reject) {
-    axios
-      .get(url, config)
-      .then((res) => {
-        resolve(_handleSuccess(res));
-      })
-      .catch((err) => {
-        reject(_handleError(err));
-      });
-  });
-}
-
-export function post(url, data, config) {
-  return new Promise(function (resolve, reject) {
-    axios
-      .post(url, data, config)
-      .then(function (res) {
-        resolve(_handleSuccess(res));
-      })
-      .catch(function (err) {
-        reject(_handleError(err));
-      });
-  });
-}
+export default {
+  get: (url, config) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(url, config)
+        .then(res => resolve(_handleSuccess(res)))
+        .catch(err => reject(_handleError(err)));
+    });
+  },
+  post: (url, data, config) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(url, data, config)
+        .then(res => resolve(_handleSuccess(res)))
+        .catch(err => reject(_handleError(err)));
+    });
+  },
+  delete: (url, config) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .delete(url, config)
+        .then(res => resolve(_handleSuccess(res)))
+        .catch(err => reject(_handleError(err)));
+    });
+  },
+  put: (url, data, config) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .put(url, data, config)
+        .then(res => resolve(_handleSuccess(res)))
+        .catch(err => reject(_handleError(err)));
+    });
+  }
+};
