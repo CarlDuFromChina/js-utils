@@ -1,4 +1,4 @@
-import * as core from 'common';
+import * as core from './common';
 
 function init(url) {
   window.WebSocket = window.WebSocket || window.MozWebSocket;
