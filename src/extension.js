@@ -49,6 +49,24 @@ String.method('toStringFromBase64', function () {
 });
 
 /**
+ * 去除尾部字符空格
+ * @param {String} c 
+ * @returns 
+ */
+const trimEnd = String.prototype.trimEnd;
+String.prototype.trimEnd = function (c) {
+  if (c === null || c === undefined || c === '') {
+    return trimEnd.call(this);
+  } else {
+    var str = this;
+    var rg = new RegExp(c);
+    var i = str.length;
+    while (rg.test(str.charAt(--i)));
+    return str.slice(0, i + 1);
+  }
+}
+
+/**
  * 根据传入大小分组数组
  * @param {Number} size 
  * @returns {Array} 返回分组后的数组
