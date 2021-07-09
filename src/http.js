@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { isNil } from './common';
+import { isNullOrEmpty } from './common';
 
 axios.defaults.timeout = 20000;
 axios.defaults.withCredentials = true;
@@ -13,7 +13,7 @@ function _handleSuccess(res) {
 
   if (res.data.ErrorCode === 0) {
     return res.data.Data || res.data;
-  } else if (!isNil(res.data.ErrorCode) && !isNil(res.data.Message)) {
+  } else if (!isNullOrEmpty(res.data.ErrorCode) && !isNullOrEmpty(res.data.Message)) {
     return Promise.reject(new Error(res.data.Message));
   } else {
     return res.data;
@@ -21,7 +21,7 @@ function _handleSuccess(res) {
 }
 
 function getErrorMessage(error, defaultMessage = 'Oops！') {
-  if (typeof error === 'string') {
+  if (typeof error === 'string' && !isNullOrEmpty(error)) {
     return error;
   }
 
