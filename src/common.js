@@ -65,14 +65,3 @@ export function isNullOrEmpty(value) {
   }
 }
 
-export function getUser() {
-  return localStorage.getItem('UserId');
-}
-
-export function getBaseUrl() {
-  let url = localStorage.getItem('baseUrl');
-  if (!isNullOrEmpty(url)) {
-    return url.charAt(url.length - 1) === '/' ? url : url + '/';
-  }
-  return localStorage.getItem('baseUrl');
-}

@@ -1,8 +1,15 @@
+## 1.0.20
+
+### Features
+
+- 去除了`getBaseUrl`和`getUser`
+
 ## 1.0.17
 
 ### Features
 
 - `String`原型链强化了`trimEnd`方法，可以传入字符
+
 ## 1.0.16
 
 ### Bug Fixes
