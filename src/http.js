@@ -39,9 +39,9 @@ function getErrorMessage(error, defaultMessage = 'Oops！') {
 function _handleError(error) {
   const { status, data = {} } = error.response || {};
   let errorMessage;
-  if (status === 401) {
+  if (status === 403) {
     errorMessage = getErrorMessage(data, '您没有权限访问该资源');
-  } else if (status === 403) {
+  } else if (status === 401) {
     errorMessage = '请重新登录';
   } else if (status === 500) {
     errorMessage = getErrorMessage(data, '系统错误，请联系管理员');
@@ -52,7 +52,7 @@ function _handleError(error) {
   } else if (error.message) {
     errorMessage = error.message;
   } else {
-    errorMessage = 'Oops!';
+    errorMessage = '服务器开小差了';
   }
   return errorMessage;
 }
