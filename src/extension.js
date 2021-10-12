@@ -86,3 +86,10 @@ Array.method('chunk', function (size = 1) {
   }
   return result
 });
+
+/**
+ * 数组去重
+ */
+Array.method('distinct', function () {
+  return [...new Set(this)];
+});
