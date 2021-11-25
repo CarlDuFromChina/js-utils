@@ -14,8 +14,17 @@ Web Core 是一个 JavaScript 库，简化了 JavaScript 编程
 
 ## 使用方式
 
+安装：
+
+```shell
+yarn add @carldu/web-core # 使用 yarn 安装
+npm install @carldu/web-core --save # 使用 npm 安装
+```
+
+使用：
+
 ```javascript
-import { common, http } from 'web-core';
+import { common, http } from '@carldu/web-core';
 
 window.sp = Object.assign({}, common, http);
 
