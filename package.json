@@ -1,5 +1,5 @@
 {
-  "name": "web-core",
+  "name": "@sixpence/web-core",
   "version": "1.0.21",
   "description": "web core",
   "main": "index.js",
@@ -9,9 +9,6 @@
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "prepublish": "yarn run build"
-  },
-  "publishConfig": {
-    "registry": "http://npm.karldu.cn/"
   },
   "dependencies": {
     "axios": "^0.21.1",
