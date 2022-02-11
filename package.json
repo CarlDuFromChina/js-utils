@@ -1,6 +1,6 @@
 {
   "name": "@sixpence/web-core",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "web core",
   "main": "index.js",
   "repository": "https://gitee.com/SixPenceStudio/web-core",

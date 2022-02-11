@@ -1,3 +1,9 @@
+## 1.0.22
+
+### Bug Fixes
+
+- trimEnd 修改为 trimLast，解决命名冲突
+
 ## 1.0.21
 
 ### Bug Fixes
