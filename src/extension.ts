@@ -14,10 +14,7 @@ Function.prototype.method = function (name, func) {
   return this;
 };
 
-/**
- * 获取 html 文本内容
- */
-String.method('toText', function () {
+String.prototype.toText = function() {
   if (!isNullOrEmpty(this)) {
     const result = this.replace(/<([^>]+)>([\d\D]*?)<\/\1>/g, '$2 ').split(
       /\s+/
@@ -26,35 +23,29 @@ String.method('toText', function () {
     return result.join();
   }
   return '';
-});
+}
 
-/**
- * 转base64
- */
-String.method('toBase64String', function () {
+String.prototype.toBase64String = function () {
   if (!isNullOrEmpty(this)) {
-    return encode(this);
+    return encode(this.toString());
   }
   return '';
-});
+}
 
-/**
- * 转base64为文本
- */
-String.method('toStringFromBase64', function () {
+String.prototype.toStringFromBase64 = function () {
   if (!isNullOrEmpty(this)) {
-    return decode(this);
+    return decode(this.toString());
   }
   return '';
-});
+}
 
 /**
  * 去除尾部字符空格
  * @param {String} c 
  * @returns 
  */
-String.method('trimLast', function (c) {
-  if (c === null || c === undefined || c === '') {
+String.prototype.trimLast = function (c: string) {
+  if (isNullOrEmpty(c)) {
     return String.prototype.trimEnd.call(this);
   } else {
     var str = this;
@@ -63,15 +54,15 @@ String.method('trimLast', function (c) {
     while (rg.test(str.charAt(--i)));
     return str.slice(0, i + 1);
   }
-});
+};
 
 /**
  * 根据传入大小分组数组
  * @param {Number} size 
  * @returns {Array} 返回分组后的数组
  */
-Array.method('chunk', function (size = 1) {
-  size = Math.max(parseInt(size), 0)
+Array.prototype.chunk = function (size = 1) {
+  size = Math.max(parseInt(size.toString()), 0)
   const length = this == null ? 0 : this.length
   if (!length || size < 1) {
     return []
@@ -84,11 +75,11 @@ Array.method('chunk', function (size = 1) {
     result[resIndex++] = this.slice(index, (index += size))
   }
   return result
-});
+};
 
 /**
  * 数组去重
  */
-Array.method('distinct', function () {
+Array.prototype.distinct = function () {
   return [...new Set(this)];
-});
+};

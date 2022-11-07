@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { isNullOrEmpty } from './common';
 
 axios.defaults.timeout = 20000;
 axios.defaults.withCredentials = true;
 
-function _handleSuccess(res) {
+function _handleSuccess(res: AxiosResponse) {
   if (!res) return;
 
   if (!res.data) {
@@ -20,7 +20,7 @@ function _handleSuccess(res) {
   }
 }
 
-function getErrorMessage(error, defaultMessage = 'Oops！') {
+function getErrorMessage(error: any, defaultMessage = 'Oops！') {
   if (typeof error === 'string' && !isNullOrEmpty(error)) {
     return error;
   }
@@ -36,7 +36,7 @@ function getErrorMessage(error, defaultMessage = 'Oops！') {
   return defaultMessage;
 }
 
-function _handleError(error) {
+function _handleError(error: any) {
   const { status, data = {} } = error.response || {};
   let errorMessage;
   if (status === 403) {
@@ -58,7 +58,7 @@ function _handleError(error) {
 }
 
 export default {
-  get: (url, config) => {
+  get: (url: string, config?: AxiosRequestConfig) => {
     return new Promise((resolve, reject) => {
       axios
         .get(url, config)
@@ -66,7 +66,7 @@ export default {
         .catch(err => reject(_handleError(err)));
     });
   },
-  post: (url, data, config) => {
+  post: (url: string, data?: any, config?: AxiosRequestConfig) => {
     return new Promise((resolve, reject) => {
       axios
         .post(url, data, config)
@@ -74,7 +74,7 @@ export default {
         .catch(err => reject(_handleError(err)));
     });
   },
-  delete: (url, config) => {
+  delete: (url: string, config?: AxiosRequestConfig) => {
     return new Promise((resolve, reject) => {
       axios
         .delete(url, config)
@@ -82,7 +82,7 @@ export default {
         .catch(err => reject(_handleError(err)));
     });
   },
-  put: (url, data, config) => {
+  put: (url: string, data?: any, config?: AxiosRequestConfig) => {
     return new Promise((resolve, reject) => {
       axios
         .put(url, data, config)

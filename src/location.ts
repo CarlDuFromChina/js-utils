@@ -1,19 +1,19 @@
-
+ 
 function getLocationByWeixin() {
   return new Promise((resolve, reject) => {
     try {
       window.wx.getLocation({
         type: 'wgs84',
-        success(res) {
+        success(res: any) {
           resolve({
             latitude: res.latitude, // 纬度，浮点数，范围为90 ~ -90
             longitude: res.longitude // 经度，浮点数，范围为180 ~ -180。
           });
         },
-        fail(error) {
+        fail(error: any) {
           reject(error);
         },
-        cancel(error) {
+        cancel(error: any) {
           reject(error);
         }
       });
