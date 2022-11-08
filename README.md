@@ -24,7 +24,7 @@ npm install @carldu/web-core --save # 使用 npm 安装
 使用：
 
 ```javascript
-import { common, http } from '@carldu/web-core';
+import { common, http } from '@sixpence/web-core';
 
 window.sp = Object.assign({}, common, http);
 
