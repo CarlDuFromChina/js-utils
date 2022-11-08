@@ -5,29 +5,29 @@ import CryptoJS from 'crypto-js';
 
 export default {
   md5: {
-    encrypt: (str) => md5(str),
+    encrypt: (str: string) => md5(str),
   },
   rsa: {
-    encrypt: (str, publickKey) => {
-      const jsencrypt = new JSEncrypt();
+    encrypt: (str: string, publickKey: string) => {
+      const jsencrypt = new JSEncrypt({});
       jsencrypt.setPublicKey(publickKey);
       return jsencrypt.encrypt(str);
     },
-    decrypt: (str, privateKey) => {
-      const jsdecrypt = new JSEncrypt();
+    decrypt: (str: string, privateKey: string) => {
+      const jsdecrypt = new JSEncrypt({});
       jsdecrypt.setPrivateKey(privateKey);
       return jsdecrypt.decrypt(str);
     },
   },
   base64: {
-    encode: (str) => encode(str),
-    decode: (str) => decode(str),
+    encode: (str: string) => encode(str),
+    decode: (str: string) => decode(str),
   },
   aes: {
-    encrypt: (word, key = '') => {
+    encrypt: (word: string, key = '') => {
       return CryptoJS.AES.encrypt(word, key).toString();
     },
-    decrypt: (word, key = '') => {
+    decrypt: (word: string, key = '') => {
       const bytes = CryptoJS.AES.decrypt(word, key);
       const originTxt = bytes.toString(CryptoJS.enc.Utf8);
       return originTxt;

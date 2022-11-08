@@ -13,7 +13,7 @@ export function generate() {
  * @param {string} value1
  * @param {string} value2
  */
-export function isSame(value1, value2) {
+export function isSame(value1: string, value2: string) {
   if (isNull(value1) || isNull(value2)) {
     return false;
   }

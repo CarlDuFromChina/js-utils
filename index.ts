@@ -1,4 +1,3 @@
-'use strict';
 import encrypt from './src/utils/encrypt';
 import uuid from './src/utils/uuid';
 import http from './src/http';
