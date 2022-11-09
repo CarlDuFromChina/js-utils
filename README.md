@@ -1,6 +1,6 @@
-# Web Core
+# js-tuils
 
-Web Core 是一个 JavaScript 库，简化了 JavaScript 编程
+js-tuils 是一个 JavaScript 库，极大简化了 JavaScript 编程
 
 ## 变更日志
 
