@@ -17,14 +17,14 @@ js-tuils 是一个 JavaScript 库，极大简化了 JavaScript 编程
 安装：
 
 ```shell
-yarn add @carldu/web-core # 使用 yarn 安装
-npm install @carldu/web-core --save # 使用 npm 安装
+yarn add @sixpence/js-utils # 使用 yarn 安装
+npm install @sixpence/js-utils --save # 使用 npm 安装
 ```
 
 使用：
 
 ```javascript
-import { common, http } from '@sixpence/web-core';
+import { common, http } from '@sixpence/js-utils';
 
 window.sp = Object.assign({}, common, http);
 
@@ -40,7 +40,7 @@ sp.get('...'); // Promise
 sp.post('...'); // Promise
 
 // uuid
-import { encrypt } from 'web-core';
+import { encrypt } from '@sixpence/js-utils';
 
 encrypt.uuid.generate(); // f908ce33-6387-4b81-897c-17468d3f6320
 encrypt.uuid.isSame(
