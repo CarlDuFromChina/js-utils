@@ -10,12 +10,12 @@ export default [
     })],
     output: [
       {
-        dir: 'dist',
+        dir: 'lib',
         format: 'cjs',
         entryFileNames: '[name].cjs.js'
       },
       {
-        dir: 'dist',
+        dir: 'lib',
         format: 'esm',
         entryFileNames: '[name].esm.js'
       }
