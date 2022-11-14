@@ -13,12 +13,12 @@ declare global {
     toBase64String(): string
     toStringFromBase64(): string
     trimLast(c?: string): string
-    distinct(): Array
+    distinct<T>(): Array<T>
   }
 
-  interface Array {
-    chunk(size?: number): Array
-    distinct(): Array
+  interface Array<T> {
+    chunk(size?: number): Array<T>
+    distinct(): Array<T>
   }
 }
 
