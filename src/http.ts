@@ -58,6 +58,7 @@ function _handleError(error: any) {
 }
 
 export default {
+  axios,
   get: (url: string, config?: AxiosRequestConfig) => {
     return new Promise((resolve, reject) => {
       axios

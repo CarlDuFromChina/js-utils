@@ -1,6 +1,6 @@
 {
   "name": "@sixpence/js-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "web core",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
